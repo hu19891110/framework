@@ -9,7 +9,9 @@
   * Cache
   * Dao
   * Service 
+  * Event
   * Validation
+  * Logger
 
 ## 1.1 Roadmap
   

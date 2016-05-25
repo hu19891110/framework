@@ -1,0 +1,15 @@
+{
+    "name": "edusoho/framework",
+    "description": "A service layer framework.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": { 
+            "EduSoho\\Framework\\": "src/",
+            "EduSoho\\Framework\\Test\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
