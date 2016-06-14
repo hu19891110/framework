@@ -429,7 +429,10 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
 		$this->assertFalse(strlen($valid->quickTest('rule_ip',"11.11.1"))<= 0);
 		$this->assertFalse(strlen($valid->quickTest('rule_ip',"267.11.11.11"))<= 0);
 	}
-
+/**
+	 * @group current
+	 * @return  
+	 */
 	public function testRuleEmail(){
 		$valid = new Validator();
 
@@ -722,10 +725,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
 		}
 	}
 
-	/**
-	 * @group current
-	 * @return  
-	 */
+	
 	public function testIgnoreSyntaxError(){
 		$data = array(
 			'a' => 'male',

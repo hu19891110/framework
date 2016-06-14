@@ -64,7 +64,7 @@ class Validator
 			$this->defaultConfig = array_merge($this->defaultConfig, $cfg);
 		}
 
-		return this->defaultConfig;
+		return $this->defaultConfig;
 	}
 
 	public function errors(){
@@ -478,6 +478,7 @@ class Validator
 		if(!$this->match("/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/", $value)){
 			return "不是有效e-mail";
 		}
+
 		return "";
 	}
 
@@ -556,6 +557,7 @@ class Validator
 		if(preg_match($pattern, $value) !== 1){
 			return "不是有效网址";
 		}
+
 		return "";
 	}
 
