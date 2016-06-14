@@ -43,7 +43,7 @@ class Validator
 		//default validation config
 		$this->defaultConfig = array(
 			"blocked"           => true,
-			"filter"            => false, // only effect the linear array
+			"filter"            => false, // work only on linear array
 			"throwException"    => false,
 			"ignoreSyntaxError" => false
 		);
@@ -56,13 +56,15 @@ class Validator
 	/**
 	 * set global Validation configuration
 	 * @param  array $cfg
-	 * @return 
+	 * @return the effective config
 	 */
-	public function config($cfg){
+	public function config(array $cfg = null){
 		// build effective config
 		if($cfg != null && sizeof($cfg) > 0){
 			$this->defaultConfig = array_merge($this->defaultConfig, $cfg);
 		}
+
+		return this->defaultConfig;
 	}
 
 	public function errors(){
@@ -71,6 +73,11 @@ class Validator
 
 	public function filteredData(){
 		return $this->filteredData;
+	}
+
+
+	public function fails(){
+		return sizeof($this->errors) > 0;
 	}
 
 
@@ -113,6 +120,10 @@ class Validator
 	 */
 	public function validate(array $data, array $ruleConfigs, array $config = null)
 	{
+		//reset
+		$this->errors = [];
+		$this->filteredData = [];
+
 		if(is_null($data) || sizeof($data) === 0 
 			|| is_null($ruleConfigs) || sizeof($ruleConfigs) === 0){
 			return ;
