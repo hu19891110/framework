@@ -30,12 +30,12 @@ class Validator
 	 * error messages store here
 	 * @var array
 	 */
-	private $errors = [];
+	private $errors = array();
 	/**
 	 * filter $data with keys defined in $ruleConfigs if $config["filter"] = true
 	 * @var array
 	 */
-	private $filteredData = [];
+	private $filteredData = array();
 
 
 	public function __construct(array $cfg = null){
@@ -121,8 +121,8 @@ class Validator
 	public function validate(array $data, array $ruleConfigs, array $config = null)
 	{
 		//reset
-		$this->errors = [];
-		$this->filteredData = [];
+		$this->errors = array();
+		$this->filteredData = array();
 
 		if(is_null($data) || sizeof($data) === 0 
 			|| is_null($ruleConfigs) || sizeof($ruleConfigs) === 0){
@@ -167,7 +167,7 @@ class Validator
 
 	private function validateByRule(array $data, $key, $val, $rule){
 		$ruleName = $rule;
-		$params = [];	
+		$params = array();	
 		$left_bracket_pos = stripos($rule, '(');
 		if(!is_bool($left_bracket_pos)){ //有参数
 			$right_bracket_pos = stripos($rule, ')');
@@ -233,7 +233,7 @@ class Validator
 			return [$data[$key]];
 		}
 		//XXX support keys like：user.title, user.[].title, but only one layer.
-		$vals = [];
+		$vals = array();
 		$sublist = $data[$keyArr[0]];
 		if($keyArr[1] == "[]" && sizeof($sublist) > 0){
 			for ($i=0; $i < sizeof($sublist); $i++) { 
