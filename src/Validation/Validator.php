@@ -230,7 +230,7 @@ class Validator
 		
 		$keyArr = explode('.', $key);
 		if(sizeof($keyArr) == 1){
-			return [$data[$key]];
+			return array($data[$key]);
 		}
 		//XXX support keys like：user.title, user.[].title, but only one layer.
 		$vals = array();
@@ -613,9 +613,9 @@ class Validator
 	}
 	/**
 	 * check if date $value is before $params[0]
-	 * @param  [type] $value  [description]
-	 * @param  [type] $params [description]
-	 * @return [type]         [description]
+	 * @param  $value
+	 * @param  $params
+	 * @return 
 	 */
 	private function rule_before($value, $params){
 		if(sizeof($params) <= 0) return "";
