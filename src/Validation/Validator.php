@@ -48,7 +48,7 @@ class Validator
 			"ignoreSyntaxError" => false
 		);
 		//default timezone
-		date_default_timezone_set("Asia/Shanghai");
+		date_default_timezone_set("UTC");
 
 		$this->config($cfg);
 	}
